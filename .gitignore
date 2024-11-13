@@ -28,3 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+
+
+# auto-import
+components.d.ts
+auto-imports.d.ts
+.eslintrc-auto-import.js
