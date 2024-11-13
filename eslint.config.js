@@ -17,16 +17,6 @@ export default [
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
 
-  {
-    ignores: ['.vscode', 'node_modules', '*.md', '*.woff', '*.ttf', '.idea', 'dist', '.husky'],
-    files: ['**/*.{js,ts,mjs,mts,cjs,cts,jsx,tsx,vue}'],
-    languageOptions: {
-      globals: {
-        ...autoImport.globals,
-      },
-    },
-  },
-
   // 忽略 .gitignore 和 .prettierignore钟de
   includeIgnoreFile(gitignorePath),
   includeIgnoreFile(prettierignorePath),
@@ -44,6 +34,11 @@ export default [
     name: 'custom-rules',
     rules: {
       'no-undef': 'error',
+    },
+    languageOptions: {
+      globals: {
+        ...autoImport.globals,
+      },
     },
   },
 ]
