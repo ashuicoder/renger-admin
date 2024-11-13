@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.theme {
+  color: var(--n-text-color);
+  background-color: var(--n-color);
+  transition:
+    background-color 0.3s var(--n-bezier),
+    color 0.3s var(--n-bezier);
+}

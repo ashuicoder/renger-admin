@@ -33,7 +33,8 @@ export default [
   {
     name: 'custom-rules',
     rules: {
-      'no-undef': 'error',
+      'vue/multi-word-component-names': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
     languageOptions: {
       globals: {

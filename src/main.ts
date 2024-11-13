@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/styles/index.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -6,9 +6,24 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+import { AppLoading } from './components/AppLoading'
 
-app.use(createPinia())
-app.use(router)
+function setupApp() {
+  // 处理tailwind和naive-ui样式冲突
+  const meta = document.createElement('meta')
+  meta.name = 'naive-ui-style'
+  document.head.appendChild(meta)
 
-app.mount('#app')
+  // 应用首次加载效果
+  const appLoading = createApp(AppLoading)
+  appLoading.mount('#app-loading')
+
+  const app = createApp(App)
+
+  app.use(createPinia())
+  app.use(router)
+
+  app.mount('#app')
+}
+
+setupApp()

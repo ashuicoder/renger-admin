@@ -5,10 +5,13 @@ import { setupPlugins } from './build/plugins'
 
 // https://vite.dev/config/
 export default defineConfig((configEnv) => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd())
-  console.log(viteEnv)
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as ImportMetaEnv
   return {
-    plugins: setupPlugins(),
+    server: {
+      port: 9527,
+      host: true,
+    },
+    plugins: setupPlugins(viteEnv),
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

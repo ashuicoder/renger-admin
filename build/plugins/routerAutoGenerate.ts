@@ -1,0 +1,3 @@
+export function setupRouterAutoGenerate() {
+  return {}
+}
