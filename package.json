@@ -11,7 +11,15 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "pnpm lint",
+      "pnpm format"
+    ]
   },
   "dependencies": {
     "pinia": "^2.2.6",
