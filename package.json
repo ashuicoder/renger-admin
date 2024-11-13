@@ -17,8 +17,7 @@
   },
   "lint-staged": {
     "*": [
-      "pnpm lint",
-      "pnpm format"
+      "pnpm lint"
     ]
   },
   "dependencies": {
