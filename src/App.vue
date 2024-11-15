@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :locale="zhCN" :date-locale="dateZhCN">
+  <n-config-provider :locale="zhCN" :date-locale="dateZhCN" :theme>
     <n-loading-bar-provider>
       <n-dialog-provider>
         <n-notification-provider>
@@ -17,7 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { zhCN, dateZhCN } from 'naive-ui'
+import { zhCN, dateZhCN, darkTheme, lightTheme, useOsTheme } from 'naive-ui'
+import { useSystemStore } from '@/stores'
 
 const NaiveProviderContent = defineComponent({
   name: 'NaiveProviderContent',
@@ -30,6 +31,15 @@ const NaiveProviderContent = defineComponent({
   render() {
     return h('div')
   },
+})
+
+const osTheme = useOsTheme()
+const systemStore = useSystemStore()
+const theme = computed(() => {
+  if (systemStore.config.theme === 'auto') {
+    return osTheme.value === 'dark' ? darkTheme : lightTheme
+  }
+  return systemStore.config.theme === 'dark' ? darkTheme : lightTheme
 })
 </script>
 
