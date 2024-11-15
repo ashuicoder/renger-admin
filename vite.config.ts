@@ -15,6 +15,7 @@ export default defineConfig((configEnv) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
+        api: fileURLToPath(new URL('./src/api/modules', import.meta.url)),
       },
     },
   }

@@ -15,7 +15,8 @@
     "baseUrl": ".",
     "types": ["naive-ui/volar"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "api/*": ["./src/api/modules/*"]
     }
   }
 }
